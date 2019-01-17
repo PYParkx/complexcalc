@@ -50,4 +50,31 @@ class Calculator {
         return arr.count
     }
     
+    func avg(_ arr: [Int]) -> Int {
+        return add(arr) / arr.count
+    }
+    
+    func mathOp(args: [Int], beg: Int, op: (Int, Int) -> Int) -> Int {
+        var sum = beg
+        for index in args {
+            sum = op(sum, args[index])
+        }
+        return sum
+    }
+    
+    func add(lhs: (Int, Int), rhs: (Int, Int)) -> (Int, Int) {
+        return (p1.0 + p2.0, p1.1 + p2.1)
+    }
+    
+    func subtract(lhs: (Int, Int), rhs: (Int, Int)) -> (Int, Int) {
+        return (p1.0 - p2.0, p1.1 - p2.1)
+    }
+    
+    func add(lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
+        return ["x": lhs["x"]! + rhs["x"]!, "y": lhs["y"]! + rhs["y"]!]
+    }
+    
+    func subtract(lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
+        return ["x": lhs["x"]! - rhs["x"]!, "y": lhs["y"]! - rhs["y"]!]
+    }
 }
