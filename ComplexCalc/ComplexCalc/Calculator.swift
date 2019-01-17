@@ -32,15 +32,15 @@ class Calculator {
     
     func add(_ arr: [Int]) -> Int {
         var sum = 0;
-        for index in arr {
+        for index in 0...(arr.count - 1) {
             sum+=arr[index]
         }
         return sum
     }
     
     func multiply(_ arr: [Int]) -> Int {
-        var sum = 0;
-        for index in arr {
+        var sum = arr[0];
+        for index in 1...(arr.count - 1) {
             sum*=arr[index]
         }
         return sum
@@ -56,18 +56,18 @@ class Calculator {
     
     func mathOp(args: [Int], beg: Int, op: (Int, Int) -> Int) -> Int {
         var sum = beg
-        for index in args {
+        for index in 0...(args.count - 1) {
             sum = op(sum, args[index])
         }
         return sum
     }
     
     func add(lhs: (Int, Int), rhs: (Int, Int)) -> (Int, Int) {
-        return (p1.0 + p2.0, p1.1 + p2.1)
+        return (lhs.0 + rhs.0, lhs.1 + rhs.1)
     }
     
     func subtract(lhs: (Int, Int), rhs: (Int, Int)) -> (Int, Int) {
-        return (p1.0 - p2.0, p1.1 - p2.1)
+        return (lhs.0 - rhs.0, lhs.1 - rhs.1)
     }
     
     func add(lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
